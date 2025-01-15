@@ -17,7 +17,7 @@ Now let's create a new file called `math.sh` in the `~/Code/` directory
 and let's open that file with either `nano` or Atom.
 
 
-```bash
+``` bash
 cd ~/Code/
 nano math.sh
 ```
@@ -69,7 +69,7 @@ expr 5 / 2
 Save `math.sh` and then run this script in your shell:
 
 
-```bash
+``` bash
 bash math.sh
 ```
 
@@ -95,7 +95,7 @@ another is always rounded down to the nearest integer. Let's take a look at a
 few examples on the command line:
 
 
-```bash
+``` bash
 expr 1 / 3
 expr 10 / 3
 expr 40 / 21
@@ -116,7 +116,7 @@ A % B = D, then B * C + D = A. Let's take a look at some examples on the command
 line:
 
 
-```bash
+``` bash
 expr 1 % 3
 expr 10 % 3
 expr 40 % 21
@@ -150,7 +150,7 @@ echo "(6.5 / 0.5) + (6 * 2.2)" | bc -l
 Save `bigmath.sh` and then run this script in your shell:
 
 
-```bash
+``` bash
 bash bigmath.sh
 ```
 
@@ -199,7 +199,7 @@ store in a variable can either be a string or a number. Let's create a variable
 now on the command line:
 
 
-```bash
+``` bash
 chapter_number=5
 ```
 
@@ -209,7 +209,7 @@ sign. Notice that there are no spaces on either side of the equals sign, this
 is not allowed when assigning variables:
 
 
-```bash
+``` bash
 chapter_number = 5
 ```
 
@@ -222,7 +222,7 @@ we can use `echo`. When you want to retrieve the value of a variable you must
 use the dollar sign (`$`) before the name of the variable. Let's try this out:
 
 
-```bash
+``` bash
 echo $chapter_number
 ```
 
@@ -234,7 +234,7 @@ You can modify the value of a variable using arithmetic operators by using the
 `let` command:
 
 
-```bash
+``` bash
 let chapter_number=$chapter_number+1
 echo $chapter_number
 ```
@@ -246,7 +246,7 @@ echo $chapter_number
 You can also store strings in variables:
 
 
-```bash
+``` bash
 the_empire_state="New York"
 echo $the_empire_state
 ```
@@ -263,7 +263,7 @@ gets replaced by the string that resulted from running the command. For
 example if we wanted to store the number of lines in `math.sh`:
 
 
-```bash
+``` bash
 math_lines=$(cat math.sh | wc -l)
 echo $math_lines
 ```
@@ -276,7 +276,7 @@ Variable names with a dollar sign can also be used inside other strings in
 order to insert the value of the variable into the string:
 
 
-```bash
+``` bash
 echo "I went to school in $the_empire_state."
 ```
 
@@ -299,7 +299,7 @@ echo "Number of arguments: $#"
 Now let's try running the script a few times in a few different ways:
 
 
-```bash
+``` bash
 bash vars.sh
 ```
 
@@ -310,7 +310,7 @@ bash vars.sh
 ```
 
 
-```bash
+``` bash
 bash vars.sh red
 ```
 
@@ -321,7 +321,7 @@ bash vars.sh red
 ```
 
 
-```bash
+``` bash
 bash vars.sh red blue
 ```
 
@@ -332,7 +332,7 @@ bash vars.sh red blue
 ```
 
 
-```bash
+``` bash
 bash vars.sh red blue green
 ```
 
@@ -378,7 +378,7 @@ If you're making Bash programs for you or for others to use one way you can get
 user input is to specify arguments for users to provide to your program, as we
 discussed in the previous section. You could also ask users to type in a string
 on the command line by temporarily stopping the execution of your program using
-the `read` command. Let's a write a small script where you can see how the read
+the `read` command. Let's write a small script where you can see how the read
 command works:
 
 ```
@@ -393,7 +393,7 @@ echo "You entered: $response"
 Now let's run this script:
 
 
-```bash
+``` bash
 bash letsread.sh
 ```
 
@@ -435,7 +435,7 @@ until they are either true or false. In fact, `true` and `false` are both simple
 Bash commands! Let's try them both out now:
 
 
-```bash
+``` bash
 true
 false
 ```
@@ -449,7 +449,7 @@ actions depending on what kind of error occurs. For example if I enter the name
 of a command that does not exist into the terminal, then I'll see an error:
 
 
-```bash
+``` bash
 this_command_does_not_exist
 ```
 
@@ -466,7 +466,7 @@ variable (`$?`). We can take a look at the exit status of the last program with
 `echo`:
 
 
-```bash
+``` bash
 echo $?
 ```
 
@@ -479,7 +479,7 @@ print an error message to the console. What's the exit status of a program that
 runs successfully? Let's take a look:
 
 
-```bash
+``` bash
 echo I will succeed.
 echo $?
 ```
@@ -493,7 +493,7 @@ So the exit status of a successful program is 0. Now let's take a look at the
 exit statuses of `true` and `false`:
 
 
-```bash
+``` bash
 true
 echo $?
 false
@@ -520,7 +520,7 @@ if the program on the left hand side of `&&` has an exit status of 0. Let's
 take a look at some small examples:
 
 
-```bash
+``` bash
 true && echo "Program 1 was executed."
 false && echo "Program 2 was executed."
 ```
@@ -534,7 +534,7 @@ is not executed, so nothing is printed to the console for that command.
 Several AND operators can be chained together like so:
 
 
-```bash
+``` bash
 false && true && echo Hello
 echo 1 && false && echo 3
 echo Athos && echo Porthos && echo Aramis
@@ -556,7 +556,7 @@ and therefore has an exit status other than 0. Let's take a look at how this
 works:
 
 
-```bash
+``` bash
 true || echo "Program 1 was executed."
 false || echo "Program 2 was executed."
 ```
@@ -570,7 +570,7 @@ status. You can combine multiple OR operators so that only the first program
 with an exit status of 0 is executed:
 
 
-```bash
+``` bash
 false || echo 1 || echo 2
 echo 3 || false || echo 4
 echo Athos || echo Porthos || echo Aramis
@@ -586,7 +586,7 @@ You can combine AND and OR operators in commands, which are evaluated from left
 to right:
 
 
-```bash
+``` bash
 echo Athos || echo Porthos && echo Aramis
 echo Gaspar && echo Balthasar || echo Melchior
 ```
@@ -616,7 +616,7 @@ than another we could use `-gt`, the **g**reater **t**han flag. Enter this
 simple conditional expression into the command line:
 
 
-```bash
+``` bash
 [[ 4 -gt 3 ]]
 ```
 
@@ -624,7 +624,7 @@ The logical expression above is asking: Is 4 greater than 3? No result is
 printed to the console so let's check the exit status of that expression.
 
 
-```bash
+``` bash
 echo $?
 ```
 
@@ -639,14 +639,14 @@ than 3! Let's see what happens if we flip the expression around so we're asking
 if 3 is greater than 4:
 
 
-```bash
+``` bash
 [[ 3 -gt 4 ]]
 ```
 
 Again, nothing is printed to the console so we'll look at the exit status:
 
 
-```bash
+``` bash
 echo $?
 ```
 
@@ -662,7 +662,7 @@ expression, we can use the AND and OR operators so that an expression will
 print "t" if it's true and "f" if its false:
 
 
-```bash
+``` bash
 [[ 4 -gt 3 ]] && echo t || echo f
 [[ 3 -gt 4 ]] && echo t || echo f
 ```
@@ -681,7 +681,7 @@ test whether or not a file exists using the `-e` logical flag. Let's take a look
 at this flag in action:
 
 
-```bash
+``` bash
 cd ~/Code
 [[ -e math.sh ]] && echo t || echo f
 ```
@@ -697,7 +697,7 @@ about a value contained in a variable. Variables behave just like raw values in
 logical expressions. Let's take a look at a few examples:
 
 
-```bash
+``` bash
 number=7
 [[ $number -gt 3 ]] && echo t || echo f
 [[ $number -gt 10 ]] && echo t || echo f
@@ -737,7 +737,7 @@ for the regex then the expression is equivalent to `true`, otherwise it's
 equivalent to `false`. Let's test this operator a couple different ways:
 
 
-```bash
+``` bash
 [[ rhythms =~ [aeiou] ]] && echo t || echo f
 my_name=sean
 [[ $my_name =~ ^s.+n$ ]] && echo t || echo f
@@ -753,7 +753,7 @@ expression. The NOT operator turns true expressions into false expressions and
 vice-versa. Let's take a look at a few examples using the NOT operator:
 
 
-```bash
+``` bash
 [[ 7 -gt 2 ]] && echo t || echo f
 [[ ! 7 -gt 2 ]] && echo t || echo f
 [[ 6 -ne 3 ]] && echo t || echo f
@@ -810,7 +810,7 @@ Let's try running this Bash program a few different ways. First we'll run this
 program with no arguments:
 
 
-```bash
+``` bash
 bash simpleif.sh
 ```
 
@@ -823,7 +823,7 @@ Since we didn't provide any arguments to `simpleif.sh` the code within the IF
 statement was skipped! Now let's try providing an argument to this script:
 
 
-```bash
+``` bash
 bash simpleif.sh 77
 ```
 
@@ -837,7 +837,7 @@ within the IF statement was once again skipped. Finally let's provide `4` as an
 argument:
 
 
-```bash
+``` bash
 bash simpleif.sh 4
 ```
 
@@ -872,7 +872,7 @@ echo "End program"
 Now let's try running this program a few different ways:
 
 
-```bash
+``` bash
 bash simpleifelse.sh 4
 ```
 
@@ -887,7 +887,7 @@ statement was run and the code in the ELSE statement was not run. What do you
 think will happened when we make the conditional expression false?
 
 
-```bash
+``` bash
 bash simpleifelse.sh 3
 ```
 
@@ -923,7 +923,7 @@ fi
 First let's run the program with `4` as the first argument:
 
 
-```bash
+``` bash
 bash simpleelif.sh 4
 ```
 
@@ -935,7 +935,7 @@ The condition in the IF statement was true, so only the first `echo` command was
 executed. Now let's run the program with `5` as the first argument:
 
 
-```bash
+``` bash
 bash simpleelif.sh 5
 ```
 
@@ -949,7 +949,7 @@ echo command is executed and the rest of the statement is skipped. Try to guess
 what will happen if we use `2` as an argument:
 
 
-```bash
+``` bash
 bash simpleelif.sh 2
 ```
 
@@ -982,7 +982,7 @@ fi
 Now let's test this script with a few different arguments:
 
 
-```bash
+``` bash
 bash condexif.sh 2
 bash condexif.sh 4
 bash condexif.sh 6
@@ -1030,7 +1030,7 @@ fi
 Now let's run it a few times:
 
 
-```bash
+``` bash
 bash nested.sh 2
 bash nested.sh 4
 bash nested.sh 6
@@ -1081,7 +1081,7 @@ with a space separating each element in the list. Let's make a list of the
 plagues of Egypt:
 
 
-```bash
+``` bash
 plagues=(blood frogs lice flies sickness boils hail locusts darkness death)
 ```
 
@@ -1091,7 +1091,7 @@ the array are numbered starting from zero. To get the first element of this
 array use `${plagues[0]}` like so:
 
 
-```bash
+``` bash
 echo ${plagues[0]}
 ```
 
@@ -1103,7 +1103,7 @@ Notice that the first element has an **index** of 0. You can get any of the
 elements this way, for example the fourth element:
 
 
-```bash
+``` bash
 echo ${plagues[3]}
 ```
 
@@ -1115,7 +1115,7 @@ To get all of the elements of `plagues` use a star (`*`) between the square
 brackets:
 
 
-```bash
+``` bash
 echo ${plagues[*]}
 ```
 
@@ -1127,7 +1127,7 @@ You can also change an individual elements in the array by specifying their
 index with square brackets:
 
 
-```bash
+``` bash
 echo ${plagues[*]}
 plagues[4]=disease
 echo ${plagues[*]}
@@ -1143,7 +1143,7 @@ start at, followed by the number of elements you would like to retrieve from the
 array, separated by colons:
 
 
-```bash
+``` bash
 echo ${plagues[*]:5:3}
 ```
 
@@ -1157,7 +1157,7 @@ element of the array (remember, the sixth element has an index of 5).
 You can find the length of an array using the pound sign (`#`):
 
 
-```bash
+``` bash
 echo ${#plagues[*]}
 ```
 
@@ -1169,7 +1169,7 @@ You can use the plus-equals operator (`+=`) to add an array onto the end of
 an array array:
 
 
-```bash
+``` bash
 dwarfs=(grumpy sleepy sneezy doc)
 echo ${dwarfs[*]}
 dwarfs+=(bashful dopey happy)
@@ -1205,7 +1205,7 @@ Bash has a very handy tool for creating strings out of sequences called
 string with all of the numbers between zero and nine you could do the following:
 
 
-```bash
+``` bash
 echo {0..9}
 ```
 
@@ -1216,7 +1216,7 @@ echo {0..9}
 In addition to numbers you can also create sequences of letters:
 
 
-```bash
+``` bash
 echo {a..e}
 echo {W..Z}
 ```
@@ -1230,7 +1230,7 @@ You can put strings on either side of the curly brackets and they'll be "pasted"
 onto the corresponding end of the sequence:
 
 
-```bash
+``` bash
 echo a{0..4}
 echo b{0..4}c
 ```
@@ -1244,7 +1244,7 @@ You can also combine sequences so that two or more sequences are pasted
 together:
 
 
-```bash
+``` bash
 echo {1..3}{A..C}
 ```
 
@@ -1256,7 +1256,7 @@ If you want to use variables in order to define a sequence you need to use the
 `eval` command in order to create the sequence:
 
 
-```bash
+``` bash
 start=4
 end=9
 echo {$start..$end}
@@ -1271,7 +1271,7 @@ eval echo {$start..$end}
 You can combine sequences with a comma between brackets (`{,}`):
 
 
-```bash
+``` bash
 echo {{1..3},{a..c}}
 ```
 
@@ -1282,7 +1282,7 @@ echo {{1..3},{a..c}}
 In fact you can do this with any number of strings:
 
 
-```bash
+``` bash
 echo {Who,What,Why,When,How}?
 ```
 
@@ -1327,7 +1327,7 @@ echo "After Loop"
 Now let's execute this script:
 
 
-```bash
+``` bash
 bash forloop.sh
 ```
 
@@ -1399,7 +1399,7 @@ done
 ```
 
 
-```bash
+``` bash
 bash manyloops.sh
 ```
 
@@ -1466,7 +1466,7 @@ for `whileloop.sh` what do you think will be printed to the console when we run
 this script? Let's find out:
 
 
-```bash
+``` bash
 bash whileloop.sh
 ```
 
@@ -1552,7 +1552,7 @@ print out before we run the program. Now that you've written down or typed out
 your prediction let's run it.
 
 
-```bash
+``` bash
 bash nestedloops.sh
 ```
 
@@ -1598,7 +1598,7 @@ done
 Before we run this example try once more to guess what the output will be.
 
 
-```bash
+``` bash
 bash ifloop.sh
 ```
 
@@ -1647,7 +1647,7 @@ Take a look at the `man` page for `yes` to learn more about the program.
 ### Writing Functions
 
 A function is a small piece of code that has a name. Writing functions allows
-us to re-use the same code multiple times across programs. Functions have the
+us to re-use the same code multiple times across programs. Functions have
 the following syntax:
 
 ```
@@ -1681,7 +1681,7 @@ command three times should be the equivalent of using `echo "Hello"` three
 times. Let's run this script to find out:
 
 
-```bash
+``` bash
 bash hello.sh
 ```
 
@@ -1717,7 +1717,7 @@ function definitions in bash scripts as command line commands. Let's use
 `source` with this file so that we can then use the `ntmy` command:
 
 
-```bash
+``` bash
 source ntmy.sh
 ntmy Jeff
 ntmy Philip
@@ -1771,7 +1771,7 @@ to `addseq`. Finally we `echo` the value of `sum`. Let's `source` this program
 and test it out:
 
 
-```bash
+``` bash
 source addseq.sh
 addseq 12 90 3
 addseq 0 1 1 2 3 5 8 13
@@ -1807,7 +1807,7 @@ to understand how to store the result of a function in a variable so that it can
 be used later. Let's `source` `addseq.sh` and run it one more time:
 
 
-```bash
+``` bash
 source addseq.sh
 addseq 3 0 0 7
 ```
@@ -1823,7 +1823,7 @@ program is finished that variable retains its value in your shell. We can easily
 verify this by `echo`ing the value of `sum`:
 
 
-```bash
+``` bash
 echo $sum
 ```
 
@@ -1861,7 +1861,7 @@ Now let's `source` both files so we demonstrate how `local` helps us avoid
 overwriting variables.
 
 
-```bash
+``` bash
 source addseq.sh
 source addseq2.sh
 sum=4444
@@ -1878,7 +1878,7 @@ Our original `addseq` overwrites the value we assigned to `sum`. Now let's try
 `addseq2`.
 
 
-```bash
+``` bash
 sum=4444
 addseq2 5 10 15 20
 echo $sum
@@ -1894,7 +1894,7 @@ to correctly capture the value of the result of `addseq2` we can use command
 substitution.
 
 
-```bash
+``` bash
 my_sum=$(addseq2 5 10 15 20)
 echo $my_sum
 ```
@@ -1934,7 +1934,7 @@ in a sequence of numbers. Use `nevens` when writing this function.
 [fibonacci](https://en.wikipedia.org/wiki/Fibonacci_number) numbers specified.
 
 
-```bash
+``` bash
 plier 7 2 3
 ```
 
@@ -1943,7 +1943,7 @@ plier 7 2 3
 ```
 
 
-```bash
+``` bash
 isiteven 42
 ```
 
@@ -1952,7 +1952,7 @@ isiteven 42
 ```
 
 
-```bash
+``` bash
 nevens 42 6 7 9 33
 ```
 
@@ -1961,7 +1961,7 @@ nevens 42 6 7 9 33
 ```
 
 
-```bash
+``` bash
 howodd 42 6 7 9 33
 ```
 
@@ -1970,7 +1970,7 @@ howodd 42 6 7 9 33
 ```
 
 
-```bash
+``` bash
 fib 4
 ```
 
@@ -1979,7 +1979,7 @@ fib 4
 ```
 
 
-```bash
+``` bash
 fib 10
 ```
 
@@ -1991,7 +1991,7 @@ fib 10
 
 ### The Unix Philosophy
 
-Perhaps there are some design patters that you've been noticing since we started
+Perhaps there are some design patterns that you've been noticing since we started
 talking about Unix tools, and now we're going to discuss them explicitly. Unix
 tools were designed along a set of guidelines which are best summarized by
 [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)'s idea that each Unix
@@ -2034,7 +2034,7 @@ Let's take a detailed look at some of the code files in our current working
 directory:
 
 
-```bash
+``` bash
 ls -l | head -n 3
 ```
 
@@ -2091,7 +2091,7 @@ Finally we specify what permission we're changing:
 Let's use `echo` to write a very short program which we'll call `short`.
 
 
-```bash
+``` bash
 echo 'echo "a small program"' > short
 ```
 
@@ -2101,7 +2101,7 @@ into the command line to run the program, just like a command!
 Let's take a look at the permissions for `short`.
 
 
-```bash
+``` bash
 ls -l short
 ```
 
@@ -2114,7 +2114,7 @@ created it. This means we can combine `u`, `+`, and `x` in order make `short`
 executable. Let's try it:
 
 
-```bash
+``` bash
 chmod u+x short
 ls -l short
 ```
@@ -2128,7 +2128,7 @@ path to the file, even if the path is in the current directory, meaning we need
 to prepend `./` to `short`. Now let's try running the program.
 
 
-```bash
+``` bash
 ./short
 ```
 
@@ -2148,7 +2148,7 @@ scripts for a while now! Let's rewrite this program to include the Bash shebang
 and then let's run the program.
 
 
-```bash
+``` bash
 echo '#!/usr/bin/env bash' > short
 echo 'echo "a small program"' >> short
 ```
@@ -2170,7 +2170,7 @@ capitalized letters. Let's look at the values for some of these variables. The
 contains the path to our current directory.
 
 
-```bash
+``` bash
 echo $HOME
 echo $PWD
 ```
@@ -2184,7 +2184,7 @@ If we want one of our functions to be available always as a command then we need
 to change the `PATH` variable. Let's take a look at this variable first.
 
 
-```bash
+``` bash
 echo $PATH
 ```
 
@@ -2206,7 +2206,7 @@ where we can keep our executable scripts. Then we'll add a line to our
 `~/.bash_profile` so that `Commands` is added to the `PATH`.
 
 
-```bash
+``` bash
 mkdir Commands
 nano ~/.bash_profile
 ```
@@ -2223,7 +2223,7 @@ Save `~/.bash_profile` and close `nano`. Now let's `source` our Bash profile
 Then we should be able to use `short` as a command!
 
 
-```bash
+``` bash
 source ~/.bash_profile
 short
 ```
@@ -2239,7 +2239,7 @@ command to our `~/.bash_profile` so that we can use a Bash function on the
 command line. Let's use `nano` to open up our `~/.bash_profile` again.
 
 
-```bash
+``` bash
 nano ~/.bash_profile
 ```
 
@@ -2255,7 +2255,7 @@ Save the `~/.bash_profile`, quit `nano`, and now let's `source` our
 `~/.bash_profile` so we can test if we can use `addseq2`.
 
 
-```bash
+``` bash
 source ~/.bash_profile
 addseq2 9 8 7
 ```
@@ -2292,7 +2292,7 @@ prints all of the numbers between that number and 0.
 values of a sequence of numbers.
 
 
-```bash
+``` bash
 range 6
 ```
 
@@ -2301,7 +2301,7 @@ range 6
 ```
 
 
-```bash
+``` bash
 range -3
 ```
 
@@ -2310,7 +2310,7 @@ range -3
 ```
 
 
-```bash
+``` bash
 extremes 8 2 9 4 0 3
 ```
 

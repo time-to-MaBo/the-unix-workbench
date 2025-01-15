@@ -10,7 +10,7 @@ argument to `man` is the command you're curious about. Let's take a look at the
 documentation for `ls`:
 
 
-```bash
+``` bash
 man ls
 ```
 
@@ -55,7 +55,7 @@ command line text editor. You could type `apropos editor` into the command line
 which will print a list of results:
 
 
-```bash
+``` bash
 apropos editor
 ```
 
@@ -91,7 +91,7 @@ for such a command, then use `man` to read about how that command works.
 Let's go into my `Photos` folder in my home directory and take a look around:
 
 
-```bash
+``` bash
 pwd
 ```
 
@@ -100,7 +100,7 @@ pwd
 ```
 
 
-```bash
+``` bash
 ls
 ```
 
@@ -114,7 +114,7 @@ ls
 ```
 
 
-```bash
+``` bash
 cd Photos
 ls
 ```
@@ -146,7 +146,7 @@ command line. For example if I wanted to list all of the files in my Photos
 directory which have a name that starts with "2017" I could do the following:
 
 
-```bash
+``` bash
 ls 2017*
 ```
 
@@ -166,7 +166,7 @@ Let's walk through a few other examples of using the star wildcard. We could
 only list the photos starting with "2016":
 
 
-```bash
+``` bash
 ls 2016*
 ```
 
@@ -181,7 +181,7 @@ ls 2016*
 We could list only the files with names ending in `.jpg`:
 
 
-```bash
+``` bash
 ls *.jpg
 ```
 
@@ -199,7 +199,7 @@ any character, but the file name must end in `.jpg`.
 Or we could also list only the first photos from each set of photos:
 
 
-```bash
+``` bash
 ls *01.*
 ```
 
@@ -221,7 +221,7 @@ Let's organize these photos by year. First let's create one directory for
 each year of photos:
 
 
-```bash
+``` bash
 mkdir 2016
 mkdir 2017
 ```
@@ -229,7 +229,7 @@ mkdir 2017
 Now we can move the photos using wildcards:
 
 
-```bash
+``` bash
 mv 2017-* 2017/
 ls
 ```
@@ -248,7 +248,7 @@ Notice that I've moved all files that start with "2017-" into the 2017 folder!
 Now let's do the same thing for files with names starting with "2016-":
 
 
-```bash
+``` bash
 mv 2016-* 2016/
 ls
 ```
@@ -262,7 +262,7 @@ Finally my photos are somewhat organized! Let's list the files in each directory
 just to make sure all was moved as planned:
 
 
-```bash
+``` bash
 ls 2016/
 ```
 
@@ -275,7 +275,7 @@ ls 2016/
 ```
 
 
-```bash
+``` bash
 ls 2017/
 ```
 
@@ -317,7 +317,7 @@ can find [here](http://seankross.com/notes/states.txt). Let's take a look at
 this file:
 
 
-```bash
+``` bash
 cd ~/Documents
 ls
 ```
@@ -328,7 +328,7 @@ ls
 ```
 
 
-```bash
+``` bash
 wc states.txt
 ```
 
@@ -340,7 +340,7 @@ It makes sense that there are 50 lines, but it's interesting that there are 60
 total words. Let's a take a peak at the beginning of the file:
 
 
-```bash
+``` bash
 head states.txt
 ```
 
@@ -374,7 +374,7 @@ file to search. Let's see a simple example of `grep` in action and then I'll
 explain how it works:
 
 
-```bash
+``` bash
 grep "x" states.txt
 ```
 
@@ -391,7 +391,7 @@ the only two state names that contain the letter "x". Let's try searching for
 the letter "q" in all of the state names using `grep`:
 
 
-```bash
+``` bash
 grep "q" states.txt
 ```
 
@@ -401,7 +401,7 @@ example the following command will search for the state names that contain the
 word "New":
 
 
-```bash
+``` bash
 grep "New" states.txt
 ```
 
@@ -419,7 +419,7 @@ parts of words. For example I could search all of the state names that contain
 the string "nia" with the following command:
 
 
-```bash
+``` bash
 grep "nia" states.txt
 ```
 
@@ -447,7 +447,7 @@ for the character "i", followed by any character, followed by the character "g"
 I could do so with the following command:
 
 
-```bash
+``` bash
 egrep "i.g" states.txt
 ```
 
@@ -475,7 +475,7 @@ expression "s+as" means: one or more "s" followed by "as". Let's see if any of
 the state names match this expression:
 
 
-```bash
+``` bash
 egrep "s+as" states.txt
 ```
 
@@ -490,7 +490,7 @@ zero or more occurrences of the preceding expression. Let's see what happens if
 we change `"s+as"` to `"s*as"`:
 
 
-```bash
+``` bash
 egrep "s*as" states.txt
 ```
 
@@ -513,7 +513,7 @@ exact number of occurrences of an expression. For example the regular expression
 this regular expression:
 
 
-```bash
+``` bash
 egrep "s{2}" states.txt
 ```
 
@@ -530,7 +530,7 @@ and three adjacent occurrences of the letter "s" with the regular expression
 `"s{2,3}"`:
 
 
-```bash
+``` bash
 egrep "s{2,3}" states.txt
 ```
 
@@ -551,7 +551,7 @@ string "iss" occurring twice in a state name I could use a capturing group and
 a quantifier like so:
 
 
-```bash
+``` bash
 egrep "(iss){2}" states.txt
 ```
 
@@ -564,7 +564,7 @@ complicated regular expressions. For example, the following regular expression
 describes three occurrences of an "i" followed by two of any character:
 
 
-```bash
+``` bash
 egrep "(i.{2}){3}" states.txt
 ```
 
@@ -580,7 +580,7 @@ For the next couple of examples we're going to need some text data beyond the
 names of the states. Let's just create a short text file from the console:
 
 
-```bash
+``` bash
 touch small.txt
 echo "abcdefghijklmnopqrstuvwxyz" >> small.txt
 echo "ABCDEFGHIJKLMNOPQRSTUVWXYZ" >> small.txt
@@ -601,7 +601,7 @@ metacharacter corresponds to all "space" characters. Let's take a look at using
 each of these metacharacters on small.txt:
 
 
-```bash
+``` bash
 egrep "\w" small.txt
 ```
 
@@ -618,7 +618,7 @@ egrep "\w" small.txt
 ```
 
 
-```bash
+``` bash
 egrep "\d" small.txt
 ```
 
@@ -627,7 +627,7 @@ egrep "\d" small.txt
 ```
 
 
-```bash
+``` bash
 egrep "\s" small.txt
 ```
 
@@ -641,7 +641,7 @@ numbers, and even the underscore character (`_`). We can see the complement of
 this grep by adding the `-v` flag to the command:
 
 
-```bash
+``` bash
 egrep -v "\w" small.txt
 ```
 
@@ -655,7 +655,7 @@ regular expressions also have their inverse sets: `\W` for non-words, `\D` for
 non-digits, and `\S` for non-spaces. Let's take a look at using `\W`:
 
 
-```bash
+``` bash
 egrep "\W" small.txt
 ```
 
@@ -679,7 +679,7 @@ example the regular expression `[^aeiou]` matches all characters that are not
 vowels. Let's test both on small.txt:
 
 
-```bash
+``` bash
 egrep "[aeiou]" small.txt
 ```
 
@@ -695,7 +695,7 @@ Notice that the word "rhythms" does not appear in the result (it's the longest
 word without any vowels that I could think of).
 
 
-```bash
+``` bash
 egrep "[^aeiou]" small.txt
 ```
 
@@ -725,7 +725,7 @@ expression, not just character sets. Let's take a look at some examples using
 the regular expressions that we just described:
 
 
-```bash
+``` bash
 egrep "[e-q]" small.txt
 ```
 
@@ -737,7 +737,7 @@ egrep "[e-q]" small.txt
 ```
 
 
-```bash
+``` bash
 egrep "[E-Q]" small.txt
 ```
 
@@ -746,7 +746,7 @@ egrep "[E-Q]" small.txt
 ```
 
 
-```bash
+``` bash
 egrep "[e-qE-Q]" small.txt
 ```
 
@@ -769,7 +769,7 @@ in a regex, in order to "escape" the metacharacter functionality. Here are a few
 examples:
 
 
-```bash
+``` bash
 egrep "\+" small.txt
 ```
 
@@ -778,7 +778,7 @@ egrep "\+" small.txt
 ```
 
 
-```bash
+``` bash
 egrep "\." small.txt
 ```
 
@@ -794,7 +794,7 @@ expressions. For example, going back to looking at states.txt, I could search
 for all of the state names that begin with "M" with the following command:
 
 
-```bash
+``` bash
 egrep "^M" states.txt
 ```
 
@@ -812,7 +812,7 @@ egrep "^M" states.txt
 Or we could search for all of the states that end in "s":
 
 
-```bash
+``` bash
 egrep "s$" states.txt
 ```
 
@@ -835,7 +835,7 @@ Finally, let's talk about the "or" metacharacter (`|`), which is also called the
 the right or on the left side of the pipe. Let's take a look at a small example:
 
 
-```bash
+``` bash
 egrep "North|South" states.txt
 ```
 
@@ -851,7 +851,7 @@ In the example above we're searching for lines of text that contain the words
 search for lines that contain the words for all of the cardinal directions:
 
 
-```bash
+``` bash
 egrep "North|South|East|West" states.txt
 ```
 
@@ -867,7 +867,7 @@ Just two more notes on `grep`: you can display the line number that a match
 occurs on using the `-n` flag:
 
 
-```bash
+``` bash
 egrep -n "t$" states.txt
 ```
 
@@ -880,7 +880,7 @@ And you can also `grep` multiple files at once by providing multiple file
 arguments:
 
 
-```bash
+``` bash
 egrep "New" states.txt canada.txt
 ```
 
@@ -898,7 +898,7 @@ regular expressions! Imagine you wanted to search for all of the state names
 that both begin and end with a vowel. Now you can:
 
 
-```bash
+``` bash
 egrep "^[AEIOU]{1}.+[aeiou]{1}$" states.txt
 ```
 
@@ -955,7 +955,7 @@ of the file that you're looking for. Let's go back to the home directory and
 look for some files from there:
 
 
-```bash
+``` bash
 cd
 pwd
 ```
@@ -967,7 +967,7 @@ pwd
 Let's start by looking for a file called states.txt:
 
 
-```bash
+``` bash
 find . -name "states.txt"
 ```
 
@@ -978,7 +978,7 @@ find . -name "states.txt"
 Right where we expected it to be! Now let's try searching for all `.jpg` files:
 
 
-```bash
+``` bash
 find . -name "*.jpg"
 ```
 
@@ -1020,7 +1020,7 @@ history two different ways. The commands that we've used since opening our
 terminal can be accessed via the `history` command. Let's try it out:
 
 
-```bash
+``` bash
 history
 ```
 
@@ -1045,7 +1045,7 @@ history! Whenever we close a terminal our recent commands are written to the
 `~/.bash_history` file. Let's a take a look at the beginning of this file:
 
 
-```bash
+``` bash
 head -n 5 ~/.bash_history
 ```
 
@@ -1063,7 +1063,7 @@ a command you've used in the past. The `~/.bash_history` file is just a regular
 text file, so you can search it with `grep`. Here's a simple example:
 
 
-```bash
+``` bash
 grep "canada" ~/.bash_history
 ```
 
@@ -1094,14 +1094,14 @@ file. Add the line `alias docs='cd ~/Documents'`, then save the file and quit
 need to run `source ~/.bash_profile` in the console:
 
 
-```bash
+``` bash
 source ~/.bash_profile
 ```
 
 Now let's try using `docs`:
 
 
-```bash
+``` bash
 docs
 pwd
 ```
@@ -1136,7 +1136,7 @@ It's important to be able to examine differences between files. First let's
 make two small simple text files in the Documents directory.
 
 
-```bash
+``` bash
 cd ~/Documents
 head -n 4 states.txt > four.txt
 head -n 6 states.txt > six.txt
@@ -1146,7 +1146,7 @@ If we want to look at which lines in these files are different we can use the
 `diff` command:
 
 
-```bash
+``` bash
 diff four.txt six.txt
 ```
 
@@ -1160,7 +1160,7 @@ Only the differing lines are printed to the console. We could also compare
 differing lines in a side-by-side comparison using `sdiff`:
 
 
-```bash
+``` bash
 sdiff four.txt six.txt
 ```
 
@@ -1184,17 +1184,17 @@ There are a few commonly used file hashes but we'll talk about two called MD5
 and SHA-1.
 
 Since hashes are generated based on file contents, then two identical files
-should have the same hash. Let's test this my making a copy of `states.txt`.
+should have the same hash. Let's test this by making a copy of `states.txt`.
 
 
-```bash
+``` bash
 cp states.txt states_copy.txt
 ```
 
 To compute the MD5 hash of a file we can use the `md5` command:
 
 
-```bash
+``` bash
 md5 states.txt
 ```
 
@@ -1203,7 +1203,7 @@ md5 states.txt
 ```
 
 
-```bash
+``` bash
 md5 states_copy.txt
 ```
 
@@ -1215,7 +1215,7 @@ As we expected they're the same! We can compute the SHA-1 hash using the
 `shasum` command:
 
 
-```bash
+``` bash
 shasum states.txt
 ```
 
@@ -1224,7 +1224,7 @@ shasum states.txt
 ```
 
 
-```bash
+``` bash
 shasum states_copy.txt
 ```
 
@@ -1237,7 +1237,7 @@ files, just to illustrate the fact that the hash changes if file contents are
 different:
 
 
-```bash
+``` bash
 head -n 5 states_copy.txt > states_copy.txt
 shasum states_copy.txt
 ```
@@ -1264,7 +1264,7 @@ Let's take a look at a basic example. We know the `cat` command takes the
 contents of a text file and prints it to the console:
 
 
-```bash
+``` bash
 cd ~/Documents
 cat canada.txt
 ```
@@ -1290,7 +1290,7 @@ dispensing end of the pipe to `head`, which we use to look at the first few
 lines of a file:
 
 
-```bash
+``` bash
 cat canada.txt | head -n 5
 ```
 
@@ -1313,7 +1313,7 @@ expressions to list all of the state names that end with a vowel, then we could
 use `wc` to count all of the matching state names:
 
 
-```bash
+``` bash
 grep "[aeiou]$" states.txt | wc -l
 ```
 
@@ -1327,7 +1327,7 @@ For example we could use three pipes with `ls`, `grep`, and `less` so that we
 could scroll through the files in our current directory that were created in February:
 
 
-```bash
+``` bash
 ls -al | grep "Feb" | less
 ```
 
@@ -1373,7 +1373,7 @@ populated with some information about our current directory.
 Let's start by creating a very basic `makefile` with `nano`:
 
 
-```bash
+``` bash
 cd ~/Documents/Journal
 nano makefile
 ```
@@ -1399,7 +1399,7 @@ Let's save and close the `makefile`, then we can run the following in the
 console:
 
 
-```bash
+``` bash
 ls
 ```
 
@@ -1411,7 +1411,7 @@ Let's use the `make` command with the target we want to be "made" as the only
 argument:
 
 
-```bash
+``` bash
 make draft_journal_entry.txt
 ```
 
@@ -1420,7 +1420,7 @@ make draft_journal_entry.txt
 ```
 
 
-```bash
+``` bash
 ls
 ```
 
@@ -1434,7 +1434,7 @@ The commands that are indented under our definition of the rule for the
 exists! Let's try running the same `make` command again:
 
 
-```bash
+``` bash
 make draft_journal_entry.txt
 ```
 
@@ -1460,7 +1460,7 @@ Let's update our `makefile` to include a `readme.txt` that is built
 automatically. First, let's add a table of contents for our journal:
 
 
-```bash
+``` bash
 echo "1. 2017-06-15-In-Boston" > toc.txt
 ```
 
@@ -1468,7 +1468,7 @@ Now let's update our `makefile` with `nano` to automatically generate a
 `readme.txt`:
 
 
-```bash
+``` bash
 nano makefile
 ```
 
@@ -1486,7 +1486,7 @@ expression match from the matching line, so that only the number of lines is
 appended to `readme.txt`. Now let's run `make` with `readme.txt` as the target:
 
 
-```bash
+``` bash
 make readme.txt
 ```
 
@@ -1498,7 +1498,7 @@ make readme.txt
 Now let's take a look at `readme.txt`:
 
 
-```bash
+``` bash
 cat readme.txt
 ```
 
@@ -1511,7 +1511,7 @@ Looks like it worked! What do you think will happen if we run `make readme.txt`
 again?
 
 
-```bash
+``` bash
 make readme.txt
 ```
 
@@ -1525,7 +1525,7 @@ the only dependency) `make` doesn't run the commands for the `readme.txt` rule.
 Now let's modify `toc.txt` then we'll try running `make` again.
 
 
-```bash
+``` bash
 echo "2. 2017-06-16-IQSS-Talk" >> toc.txt
 make readme.txt
 ```
@@ -1538,7 +1538,7 @@ make readme.txt
 Looks like it ran! Let's check readme.txt to make sure.
 
 
-```bash
+``` bash
 cat readme.txt
 ```
 
@@ -1557,7 +1557,7 @@ any arguments in order to build all of the targets in the `makefile`. Let's
 open up `nano` and add this rule:
 
 
-```bash
+``` bash
 nano makefile
 ```
 
@@ -1594,7 +1594,7 @@ Let's save and close our `makefile` then let's test it out.  First let's clean u
 our repository:
 
 
-```bash
+``` bash
 make clean
 ls
 ```
@@ -1607,7 +1607,7 @@ ls
 ```
 
 
-```bash
+``` bash
 make
 ls
 ```

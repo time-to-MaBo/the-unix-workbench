@@ -40,12 +40,12 @@ account. Take note of which email address you use and which username you choose.
 To see if you have Git installed open up your terminal and enter the following:
 
 
-```bash
+``` bash
 git --version
 ```
 
 ```
-## git version 2.14.3 (Apple Git-98)
+## git version 2.43.0
 ```
 
 If you don't get a response back telling you the version of Git that you have
@@ -61,7 +61,7 @@ up with Git is your GitHub user name, and the second variable is the email
 address that you used to create your GitHub account:
 
 
-```bash
+``` bash
 git config --global user.name "myUserName"
 git config --global user.email myName@email.com
 ```
@@ -72,7 +72,7 @@ git config --global user.email myName@email.com
 Let's create our first Git repository. First we need to create a directory:
 
 
-```bash
+``` bash
 cd
 mkdir my-first-repo
 cd my-first-repo
@@ -82,7 +82,7 @@ cd my-first-repo
 with Git in a directory enter `git init` into the command line:
 
 
-```bash
+``` bash
 git init
 ```
 
@@ -94,7 +94,7 @@ You've just created your first repository! Now let's create a file and start
 tracking it.
 
 
-```bash
+``` bash
 echo "Welcome to My First Repo" > readme.txt
 ```
 
@@ -104,7 +104,7 @@ throughout this chapter in order to get information about the status of this Git
 repository.
 
 
-```bash
+``` bash
 git status
 ```
 
@@ -126,7 +126,7 @@ know that you want to track this file we need to use `git add` with the name of
 the file that we want to track. Let's start tracking `readme.txt`:
 
 
-```bash
+``` bash
 git add readme.txt
 ```
 
@@ -134,7 +134,7 @@ Git now knows to track any changes to `readme.txt`. Let's see how the status of
 the repository has changed:
 
 
-```bash
+``` bash
 git status
 ```
 
@@ -157,7 +157,7 @@ which we could do with `git rm --cached readme.txt`. Let's unstage this file
 just to see what happens:
 
 
-```bash
+``` bash
 git rm --cached readme.txt
 ```
 
@@ -166,7 +166,7 @@ git rm --cached readme.txt
 ```
 
 
-```bash
+``` bash
 git status
 ```
 
@@ -187,7 +187,7 @@ unstaged file. Let's start tracking `readme.txt` again so we can move on to
 cooler Git features.
 
 
-```bash
+``` bash
 git add readme.txt
 ```
 
@@ -201,7 +201,7 @@ after the `-m` flag. The message should briefly describe what changes you've
 made since the last commit.
 
 
-```bash
+``` bash
 git commit -m "added readme.txt"
 ```
 
@@ -218,7 +218,7 @@ only changed one file, and we only changed one line in that file. Let's run
 commit:
 
 
-```bash
+``` bash
 git status
 ```
 
@@ -231,7 +231,7 @@ All of the changes to the files in this repository have been committed! Let's
 add a few more files to this repository and commit them.
 
 
-```bash
+``` bash
 touch file1.txt
 touch fil2.txt
 ls
@@ -246,7 +246,7 @@ ls
 While we're at it let's also add a new line of text to `readme.txt`:
 
 
-```bash
+``` bash
 echo "Learning Git is going well so far." >> readme.txt
 ```
 
@@ -254,7 +254,7 @@ Now that we've added two more files and we've made changes to one file let's
 take a look at the state of this repository.
 
 
-```bash
+``` bash
 git status
 ```
 
@@ -284,7 +284,7 @@ console. However if we want to track all of the changes to all of the files in
 our directory we should use the command `git add -A`.
 
 
-```bash
+``` bash
 git add -A
 git status
 ```
@@ -304,7 +304,7 @@ Now the changes to all of the files in this repository are being tracked.
 Finally let's commit these changes:
 
 
-```bash
+``` bash
 git commit -m "added two files"
 ```
 
@@ -320,7 +320,7 @@ of the names of my files! Thankfully we can undo the most recent commit with
 the command `git reset --soft HEAD~`:
 
 
-```bash
+``` bash
 git reset --soft HEAD~
 git status
 ```
@@ -341,7 +341,7 @@ commit. Now we can rename `fil2.txt` to `file2.txt`, then let's look at the
 status of the repository again.
 
 
-```bash
+``` bash
 mv fil2.txt file2.txt
 git status
 ```
@@ -373,7 +373,7 @@ that the file has been deleted. We can bring Git up to speed with what files it
 should be tracking with `git add -A`:
 
 
-```bash
+``` bash
 git add -A
 git status
 ```
@@ -392,7 +392,7 @@ git status
 Finally we got the file names right! Now let's make the correct commit:
 
 
-```bash
+``` bash
 git commit -m "added two files"
 ```
 
@@ -434,7 +434,7 @@ Git commands have their own `man` pages. You can access them with
 for `git status`:
 
 
-```bash
+``` bash
 git help status
 ```
 
@@ -461,7 +461,7 @@ with the `Q` key.
 If you want to see a list of your Git commits, enter `git log` into the console:
 
 
-```bash
+``` bash
 git log
 ```
 
@@ -487,7 +487,7 @@ Git can also help show the differences between unstaged changes to your files
 compared to the last commit. Let's add a new line of text to `readme.txt`:
 
 
-```bash
+``` bash
 echo "I added a line." >> readme.txt
 git diff readme.txt
 ```
@@ -507,7 +507,7 @@ As you can see a plus sign shows up next to the added line. Now let's open up
 this file in a text editor so we can delete the second line.
 
 
-```bash
+``` bash
 nano readme.txt
 # Delete the second line
 git diff readme.txt
@@ -528,7 +528,7 @@ A minus sign appears next to the line we deleted. Let's take a look at the
 status of our directory at this point.
 
 
-```bash
+``` bash
 git status
 ```
 
@@ -551,7 +551,7 @@ to restore its content to what was present in the last commit. Let's remove
 our changes to see how this works.
 
 
-```bash
+``` bash
 cat readme.txt
 ```
 
@@ -561,7 +561,7 @@ cat readme.txt
 ```
 
 
-```bash
+``` bash
 git checkout readme.txt
 cat readme.txt
 ```
@@ -585,7 +585,7 @@ or group of files that should not be tracked by Git. Let's make a `.gitignore`
 file to make sure that we never track image files in this repository:
 
 
-```bash
+``` bash
 touch toby.jpg
 git status
 ```
@@ -604,7 +604,7 @@ Now that we've added an image to our repository, let's add a `.gitignore` file
 to make sure Git doesn't track these kinds of files.
 
 
-```bash
+``` bash
 echo "*.jpg" > .gitignore
 git status
 ```
@@ -623,7 +623,7 @@ Now we can see that Git has detected the new `.gitignore` file, but it doesn't
 see `toby.jpg`. Let's add and commit our `.gitignore` file:
 
 
-```bash
+``` bash
 git add -A
 git commit -m "added gitignore"
 ```
@@ -637,7 +637,7 @@ git commit -m "added gitignore"
 Now if we add another `.jpg` file, Git will not see the file:
 
 
-```bash
+``` bash
 touch bernie.jpg
 git status
 ```
@@ -648,7 +648,7 @@ git status
 ```
 
 
-```bash
+``` bash
 ls
 ```
 
@@ -688,7 +688,7 @@ then Git can help you elegantly merge your branches and changes together.
 You can list all of the available branches with the command `git branch`:
 
 
-```bash
+``` bash
 git branch
 ```
 
@@ -705,14 +705,14 @@ To add a branch we'll also use the `git branch` command, followed the name of
 the branch we want to create:
 
 
-```bash
+``` bash
 git branch my-new-feature
 ```
 
 Now let's enter `git branch` again to confirm that we've created the branch:
 
 
-```bash
+``` bash
 git branch
 ```
 
@@ -725,7 +725,7 @@ We can make `my-new-feature` the current branch using `git checkout` with the
 name of the branch:
 
 
-```bash
+``` bash
 git checkout my-new-feature
 ```
 
@@ -734,7 +734,7 @@ git checkout my-new-feature
 ```
 
 
-```bash
+``` bash
 git branch
 ```
 
@@ -747,7 +747,7 @@ If we look at `git status` we can also see that it will tell us which branch
 we're on:
 
 
-```bash
+``` bash
 git status
 ```
 
@@ -759,7 +759,7 @@ nothing to commit, working tree clean
 We can switch back to the `master` branch using `git checkout`:
 
 
-```bash
+``` bash
 git checkout master
 ```
 
@@ -768,7 +768,7 @@ git checkout master
 ```
 
 
-```bash
+``` bash
 git branch
 ```
 
@@ -781,7 +781,7 @@ Now we can delete a branch by using the `-d` flag with `git branch` and the name
 of the branch we want to delete:
 
 
-```bash
+``` bash
 git branch -d my-new-feature
 ```
 
@@ -790,7 +790,7 @@ git branch -d my-new-feature
 ```
 
 
-```bash
+``` bash
 git branch
 ```
 
@@ -804,7 +804,7 @@ time using the command `git checkout -b` and the name of the new branch we want
 to create:
 
 
-```bash
+``` bash
 git checkout -b update-readme
 ```
 
@@ -817,7 +817,7 @@ a file. As you might be expecting right now we'll add a new line to
 `readme.txt`:
 
 
-```bash
+``` bash
 echo "I added this line in the update-readme branch." >> readme.txt
 cat readme.txt
 ```
@@ -831,7 +831,7 @@ cat readme.txt
 Now that we've added a new line let's commit these changes:
 
 
-```bash
+``` bash
 git add -A
 git commit -m "added a third line to readme.txt"
 ```
@@ -845,7 +845,7 @@ Now that we've made a commit on the `update-readme` branch, let's switch back to
 `master` branch, and then we'll take a look at `readme.txt`:
 
 
-```bash
+``` bash
 git checkout master
 ```
 
@@ -856,7 +856,7 @@ git checkout master
 Now that we're on the `master` branch let's quickly glance at `readme.txt`:
 
 
-```bash
+``` bash
 cat readme.txt
 ```
 
@@ -871,7 +871,7 @@ gone forever. We committed the change to this file while we were on the
 switch back to that branch just to make sure:
 
 
-```bash
+``` bash
 git checkout update-readme
 cat readme.txt
 ```
@@ -886,7 +886,7 @@ And the third line is back! Let's add and commit yet another line while we're
 on this branch:
 
 
-```bash
+``` bash
 echo "It's sunny outside today." >> readme.txt
 git add -A
 git commit -m "added weather info"
@@ -914,7 +914,7 @@ Let's switch to the `master` branch so we can merge in the changes from the
 `update-readme` branch:
 
 
-```bash
+``` bash
 git checkout master
 ```
 
@@ -926,7 +926,7 @@ To merge in the changes from another branch we need to use `git merge` and the
 name of the branch:
 
 
-```bash
+``` bash
 git merge update-readme
 ```
 
@@ -938,7 +938,7 @@ git merge update-readme
 ```
 
 
-```bash
+``` bash
 cat readme.txt
 ```
 
@@ -959,7 +959,7 @@ First we'll switch to the `update-readme` branch. Use `nano` to edit the last
 line of `readme.txt`, then commit your changes:
 
 
-```bash
+``` bash
 git checkout update-readme
 nano readme.txt
 cat readme.txt
@@ -975,7 +975,7 @@ cat readme.txt
 Notice that we changed "sunny" to "cloudy" in the last line.
 
 
-```bash
+``` bash
 git add -A
 git commit -m "changed sunny to cloudy"
 ```
@@ -984,14 +984,14 @@ Now that our changes are committed on the `update-readme` branch, let's switch
 back to `master`:
 
 
-```bash
+``` bash
 git checkout master
 ```
 
 Let's change the same line of code using `nano`:
 
 
-```bash
+``` bash
 nano readme.txt
 cat readme.txt
 ```
@@ -1006,7 +1006,7 @@ cat readme.txt
 Now let's commit these changes:
 
 
-```bash
+``` bash
 git add -A
 git commit -m "changed sunny to windy"
 ```
@@ -1017,7 +1017,7 @@ on the `master` branch the last line says `It's windy outside today.`. Let's
 see what happens when we try to merge `update-readme` into `master`.
 
 
-```bash
+``` bash
 git merge update-readme
 ```
 
@@ -1030,7 +1030,7 @@ git merge update-readme
 Uh-oh, there's a conflict! Let's check the status of the repo right now:
 
 
-```bash
+``` bash
 git status
 ```
 
@@ -1054,7 +1054,7 @@ indicating that both versions of readme.txt have modified the same text. Let's
 take a look at `readme.txt` to see what's going on there:
 
 
-```bash
+``` bash
 cat readme.txt
 ```
 
@@ -1080,7 +1080,7 @@ with `nano` so we can delete the lines we want to get rid of. In this case let's
 keep the "cloudy" version.
 
 
-```bash
+``` bash
 nano readme.txt
 cat readme.txt
 ```
@@ -1095,7 +1095,7 @@ cat readme.txt
 Now we can commit the resolution of this conflict.
 
 
-```bash
+``` bash
 git add -A
 git commit -m "resolved conflict"
 ```
@@ -1145,7 +1145,7 @@ repository is connected to with the `git remote` command while we have our
 working directory set to `my-first-repo`:
 
 
-```bash
+``` bash
 git remote
 ```
 
@@ -1153,7 +1153,7 @@ Nothing is printed to the console since you haven't set any remotes up yet!
 Now let's add your new GitHub repository as a remote in your local repository:
 
 
-```bash
+``` bash
 git remote add origin https://github.com/seankross/my-first-repo.git
 ```
 
@@ -1167,7 +1167,7 @@ Let's run `git remote` again to confirm that we added the `origin` remote
 successfully:
 
 
-```bash
+``` bash
 git remote
 ```
 
@@ -1185,7 +1185,7 @@ with it. Enter the following command, modified so that you're using your GitHub
 user name:
 
 
-```bash
+``` bash
 git push -u origin master
 ```
 
@@ -1227,7 +1227,7 @@ GitHub. Let's create a `README.md` file for our repository. First we'll destroy
 the plain text readme file we already have:
 
 
-```bash
+``` bash
 rm readme.txt
 ```
 
@@ -1265,7 +1265,7 @@ features. Copy the plain text below, create a new file called `README.md` with
     ![This is an image.](https://github.com/yihui/xaringan/releases/download/v0.0.2/karl-moustache.jpg)
 
 
-```bash
+``` bash
 nano README.md
 ```
 
@@ -1273,7 +1273,7 @@ Now let's add our changes, make a commit, and push those changes to our remote
 repository:
 
 
-```bash
+``` bash
 git add -A
 git commit -m "added README.md"
 git push
@@ -1335,7 +1335,7 @@ a pull request on your own repository. First in your local `my-first-repo`
 repository let's switch over to the `update-readme` branch.
 
 
-```bash
+``` bash
 git checkout update-readme
 ```
 
@@ -1346,7 +1346,7 @@ git checkout update-readme
 Let's take a look at what's currently on this branch:
 
 
-```bash
+``` bash
 ls
 ```
 
@@ -1362,7 +1362,7 @@ It looks like we haven't updated this branch to be current with the `master`
 branch. We can easily do this by merging in the `master` branch.
 
 
-```bash
+``` bash
 git merge master
 ```
 
@@ -1382,7 +1382,7 @@ let's delete all of the files in this directory that we don't really need,
 meaning everything except `README.md`.
 
 
-```bash
+``` bash
 rm *.txt
 rm *.jpg
 ls
@@ -1429,7 +1429,7 @@ Once you've written up a few fun things about yourself, add your changes, and
 make a new commit.
 
 
-```bash
+``` bash
 git add -A
 git commit -m "made readme more personal"
 ```
@@ -1438,7 +1438,7 @@ Like a local Git repository, remote repositories on GitHub can have multiple
 branches. Let's push this commit to the `update-readme` branch on GitHub:
 
 
-```bash
+``` bash
 git push origin update-readme
 ```
 
@@ -1516,7 +1516,7 @@ click near the top left corner of this page on the **<> Code** tab, and you
 should see that the changes from the `update-readme` branch have been merged
 into `master`.
 
-When working on a remote GitHub repository with many other folks these pull
+When working on a remote GitHub repository with many other folks, these pull
 requests and merges can happen without you being involved at all if the commits
 affect parts of the code that you're not working on. Still it's important to
 keep your local repository up to date with the latest changes in the remote
@@ -1524,7 +1524,7 @@ repository. Let's go back to your terminal where you have `my-first-repo` set
 as the current working directory. First let's switch to the `master` branch.
 
 
-```bash
+``` bash
 git checkout master
 ```
 
@@ -1533,7 +1533,7 @@ into the master branch on our remote repository. We can accomplish this with
 the command `git pull`:
 
 
-```bash
+``` bash
 git pull
 ```
 
@@ -1622,7 +1622,7 @@ Click on the little clipboard icon which will copy the Git URL. Now go back to
 the terminal and change your working directory to your home directory.
 
 
-```bash
+``` bash
 cd
 pwd
 ```
@@ -1635,7 +1635,7 @@ Now let's clone the repository. Type `git clone` into the terminal and then
 paste in the Git URL we copied from GitHub:
 
 
-```bash
+``` bash
 git clone https://github.com/[your-github-username]/the-unix-workbench.git
 ```
 
@@ -1651,7 +1651,7 @@ git clone https://github.com/[your-github-username]/the-unix-workbench.git
 Now `cd` into your cloned repository.
 
 
-```bash
+``` bash
 cd the-unix-workbench
 ```
 
@@ -1661,7 +1661,7 @@ should be associated with the local repository. Let's test this by entering
 `git remote` with the added `-v` flag:
 
 
-```bash
+``` bash
 git remote -v
 ```
 
@@ -1676,7 +1676,7 @@ commit! One change that I suggest is adding your name to `guestbook.md`. Let's
 do this now:
 
 
-```bash
+``` bash
 echo "- Sean Kross" >> guestbook.md # Add your own name of course!
 cat guestbook.md
 ```
@@ -1690,7 +1690,7 @@ cat guestbook.md
 Now add, commit, and push your changes:
 
 
-```bash
+``` bash
 git add guestbook.md
 git commit -m "added my name to guestbook.md"
 git push

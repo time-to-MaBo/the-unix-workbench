@@ -83,7 +83,7 @@ specified by an **IP address**. The command for connecting to a computer with
 `ssh` generally looks like this:
 
 
-```bash
+``` bash
 ssh [username]@[IP address]
 ```
 
@@ -92,7 +92,7 @@ command in the terminal substituting the IP address you received from
 DigitalOcean for the IP address I'm using in this example:
 
 
-```bash
+``` bash
 ssh root@159.203.134.88
 ```
 
@@ -148,7 +148,7 @@ you get the prompt back each time. We're in!
 Now we have access to all of the Unix commands we would normally have:
 
 
-```bash
+``` bash
 pwd
 ```
 
@@ -159,7 +159,7 @@ pwd
 In order to disconnect from the server and return to your machine use `logout`.
 
 
-```bash
+``` bash
 logout
 ```
 
@@ -170,7 +170,7 @@ logout
 To reconnect to the server use `ssh` again:
 
 
-```bash
+``` bash
 ssh root@159.203.134.88
 ```
 
@@ -197,7 +197,7 @@ a server to our local computer. First let's connect to our server so we can
 create a file there:
 
 
-```bash
+``` bash
 ssh root@159.203.134.88
 ```
 
@@ -207,7 +207,7 @@ ssh root@159.203.134.88
 ```
 
 
-```bash
+``` bash
 mkdir textfiles
 echo "From the server" > textfiles/server-file.txt
 logout
@@ -222,7 +222,7 @@ Now that we're back at the prompt on our local machine let's try getting
 with `scp` have the following general structure:
 
 
-```bash
+``` bash
 scp [username]@[IP address]:path/to/file/on/server path/on/my/computer
 ```
 
@@ -231,7 +231,7 @@ local path at `path/on/my/computer`. In the same way we can copy an entire
 folder from a server using the `-r` flag:
 
 
-```bash
+``` bash
 scp -r [username]@[IP address]:path/to/folder/on/server folder/on/my/computer
 ```
 
@@ -239,7 +239,7 @@ Let's try doing this now from our local computer. Enter your password when
 asked to do so:
 
 
-```bash
+``` bash
 cd
 pwd
 ```
@@ -249,7 +249,7 @@ pwd
 ```
 
 
-```bash
+``` bash
 mkdir Cloud
 cd Cloud
 scp root@159.203.134.88:/root/textfiles/server-file.txt downloaded.txt
@@ -261,7 +261,7 @@ scp root@159.203.134.88:/root/textfiles/server-file.txt downloaded.txt
 ```
 
 
-```bash
+``` bash
 cat downloaded.txt
 ```
 
@@ -273,14 +273,14 @@ It worked! Now let's try uploading a file to our server. The arguments for doing
 this are just the swapped arguments for downloading a file from a server:
 
 
-```bash
+``` bash
 scp path/on/my/computer [username]@[IP address]:path/to/file/on/server 
 ```
 
 Let's create a file and upload it to our server:
 
 
-```bash
+``` bash
 echo "from local computer" > to-upload.txt
 scp to-upload.txt root@159.203.134.88:/root/textfiles/uploaded-file.txt
 ```
@@ -293,7 +293,7 @@ scp to-upload.txt root@159.203.134.88:/root/textfiles/uploaded-file.txt
 Now let's log in to our server and we'll see if it's there:
 
 
-```bash
+``` bash
 ssh root@159.203.134.88
 cat textfiles/uploaded-file.txt
 ```
@@ -322,14 +322,14 @@ To download a file with `curl`, we simply need to provide the `-O` flag and the
 URL of the file:
 
 
-```bash
+``` bash
 curl -O http://website.org/textfile.txt
 ```
 
 Let's try downloading the Markdown file from my website:
 
 
-```bash
+``` bash
 curl -O http://seankross.com/the-unix-workbench/01-What-is-Unix.md
 ```
 
@@ -340,7 +340,7 @@ curl -O http://seankross.com/the-unix-workbench/01-What-is-Unix.md
 ```
 
 
-```bash
+``` bash
 head -n 5 01-What-is-Unix.md
 ```
 
@@ -348,9 +348,9 @@ head -n 5 01-What-is-Unix.md
 ```
 ## # What is Unix?
 ## 
-## Unix is an operating system and a set of tools. The tool we'll be using the
+## Unix is an operating system and a set of tools. The tool we will be using the
 ## most in this book is a shell, which is a computer program that provides a
-## command line interface. You've probably seen a command line interface in the
+## command line interface. You have probably seen a command line interface in the
 ```
 
 Looks like we got the file! The `curl` command is also commonly used for
@@ -363,7 +363,7 @@ at what programming languages are used by some of my repositories. Let's start
 with the repository for this book:
 
 
-```bash
+``` bash
 curl https://api.github.com/repos/seankross/the-unix-workbench/languages
 ```
 
@@ -384,7 +384,7 @@ which `languages` are used in that repo. Let's take a look at one more of my
 repositories just to see how the response can be different:
 
 
-```bash
+``` bash
 curl https://api.github.com/repos/seankross/lego/languages
 ```
 
@@ -404,7 +404,7 @@ information we sent. This is useful for debugging our `curl` commands. First
 let's send a request which should return our IP address:
 
 
-```bash
+``` bash
 curl http://httpbin.org/ip
 ```
 
@@ -427,7 +427,7 @@ which httpbin.org knew to just send back to us.
 Let's send a general HTTP GET request to http://httpbin.org/get:
 
 
-```bash
+``` bash
 curl http://httpbin.org/get
 ```
 
@@ -458,7 +458,7 @@ In the general case we can provide arguments to an HTTP API by putting a
 question mark (`?`) after the API's URL. Let's try this out:
 
 
-```bash
+``` bash
 curl http://httpbin.org/get?Baltimore
 ```
 
@@ -484,7 +484,7 @@ an argument's name with the template `[argument name]=[argument value]`. Let's
 take a look at a simple example:
 
 
-```bash
+``` bash
 curl http://httpbin.org/get?city=Baltimore
 ```
 
@@ -510,7 +510,7 @@ ampersand (`&`):
 
 
 
-```bash
+``` bash
 curl "http://httpbin.org/get?city=Baltimore&state=Maryland"
 ```
 
@@ -551,7 +551,7 @@ with a regular frequency is called `cron`. Let's take a look at how to use
 If you're not already connected to the server use `ssh` to connect.
 
 
-```bash
+``` bash
 ssh root@159.203.134.88
 ```
 
@@ -561,7 +561,7 @@ let's see if `cron` is running. We can get a list of all running programs
 with the `ps` command while using the `-A` flag:
 
 
-```bash
+``` bash
 ps -A
 ```
 
@@ -582,7 +582,7 @@ sifting through this listing line-by-line, let's pipe the output of this command
 to `grep` and we'll look for `cron`:
 
 
-```bash
+``` bash
 ps -A | grep "cron"
 ```
 
@@ -598,7 +598,7 @@ this book) then enter `select-editor` into the console, type in the number
 that corresponds to `nano` (usually `2`) and then press enter:
 
 
-```bash
+``` bash
 select-editor
 ```
 
@@ -617,7 +617,7 @@ command `crontab -e` (**`cron`** **tab**le **e**dit) which will automatically
 open `nano` with the appropriate file.
 
 
-```bash
+``` bash
 crontab -e
 ```
 
@@ -674,7 +674,7 @@ Save and exit `nano` just like you would for a regular text file and then wait
 a little bit! After a minute has gone by use `cat` to look at `~/date-file.txt`:
 
 
-```bash
+``` bash
 cd
 cat date-file.txt
 ```
@@ -687,7 +687,7 @@ Look like our entry in the `cron` table is working! Wait another minute and then
 look at the file again:
 
 
-```bash
+``` bash
 cat date-file.txt
 ```
 

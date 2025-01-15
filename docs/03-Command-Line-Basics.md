@@ -48,7 +48,7 @@ The `echo` command prints a phrase to the console. Enter `echo 'Hello World!'`
 into the command line to see what happens:
 
 
-```bash
+``` bash
 echo 'Hello World!'
 ```
 
@@ -129,7 +129,7 @@ and the directory that your shell starts in your home directory. Whatever
 directory your shell is in is called the **working directory**. Enter the `pwd` command into your shell to **p**rint the **w**orking **d**irectory.
 
 
-```bash
+``` bash
 pwd
 ```
 
@@ -144,13 +144,13 @@ to your home directory.
 Enter `cd` into the command line and then enter `pwd`.
 
 
-```bash
+``` bash
 cd
 pwd
 ```
 
 ```
-## /Users/sean
+## /home/maximilian
 ```
 
 You were in your working directory to start, and by entering `cd` into the
@@ -167,7 +167,7 @@ folders in a directory using the `ls` command. Let's use the `ls` command in our
 home directory to list the files and folders contained within it.
 
 
-```bash
+``` bash
 ls
 ```
 
@@ -183,14 +183,14 @@ It looks like I have four folders and one text file in my home directory. Now
 let's switch into the Music directory:
 
 
-```bash
+``` bash
 cd Music
 ```
 
 As you can see the path to the current working directory has changed:
 
 
-```bash
+``` bash
 pwd
 ```
 
@@ -204,7 +204,7 @@ I can go back to `/Users/sean/` with the command `cd ..` which changes the
 working directory to the folder above the current working directory:
 
 
-```bash
+``` bash
 cd ..
 pwd
 ```
@@ -223,7 +223,7 @@ For example I can `cd` to `/Users/sean/Music` by entering the following into
 the shell:
 
 
-```bash
+``` bash
 cd ~/Music
 pwd
 ```
@@ -243,7 +243,7 @@ the following into your shell, and then try pressing the `Tab` key (on some
 machines you need to press it twice):
 
 
-```bash
+``` bash
 cd ~/
 ```
 
@@ -262,7 +262,7 @@ directory. Now I'm going to type `~/D` into my terminal and you can see what
 happens when I press `Tab` again:
 
 
-```bash
+``` bash
 cd ~/D
 ```
 
@@ -314,7 +314,7 @@ fresh terminal is to create a new folder or file. You can **m**a**k**e a
 directory. First let's look at the contents of my home directory:
 
 
-```bash
+``` bash
 cd
 ls
 ```
@@ -331,7 +331,7 @@ Let's create a new directory to store some code files we am going to write
 later. We can use `mkdir` to create a new directory called `Code`:
 
 
-```bash
+``` bash
 mkdir Code
 ls
 ```
@@ -356,7 +356,7 @@ by the path to the file you want to create. In this example we are going to crea
 a new journal entry using `touch`:
 
 
-```bash
+``` bash
 touch journal-2017-01-24.txt
 ls
 ```
@@ -378,7 +378,7 @@ use the `-l` option with `ls` in order to get a **l**ong listing of files in
 a directory.
 
 
-```bash
+``` bash
 ls -l
 ```
 
@@ -408,7 +408,7 @@ and edit this file. First let's use the `wc` command to view the **w**ord
 **c**ount and other information about the file:
 
 
-```bash
+``` bash
 wc todo.txt
 ```
 
@@ -421,7 +421,7 @@ of words and then the number of characters. Since this file looks pretty small
 (only three lines) let's try printing it to the console using the `cat` command.
 
 
-```bash
+``` bash
 cat todo.txt
 ```
 
@@ -436,7 +436,7 @@ the fact that it is really meant to con**cat**enate files. You can see this
 concatenation in action in the following example:
 
 
-```bash
+``` bash
 cat todo.txt todo.txt
 ```
 
@@ -455,7 +455,7 @@ Let's take a look at how we could view a larger file. There is a file inside
 the Documents directory:
 
 
-```bash
+``` bash
 ls Documents
 ```
 
@@ -466,7 +466,7 @@ ls Documents
 Let's examine this file to see if it is reasonable to read it with `cat`:
 
 
-```bash
+``` bash
 wc Documents/a-tale-of-two-cities.txt
 ```
 
@@ -480,7 +480,7 @@ entire terminal. Instead of using `cat` for this large file we should use
 using `less`:
 
 
-```bash
+``` bash
 less Documents/a-tale-of-two-cities.txt
 ```
 
@@ -515,7 +515,7 @@ of a text file: `head` and `tail`. Let's quickly use `head` and `tail` on
 `a-tale-of-two-cities.txt`:
 
 
-```bash
+``` bash
 head Documents/a-tale-of-two-cities.txt
 ```
 
@@ -537,7 +537,7 @@ You can specify the number of lines printed with the `-n` option followed by
 the number of lines you would like to see:
 
 
-```bash
+``` bash
 head -n 4 Documents/a-tale-of-two-cities.txt
 ```
 
@@ -551,7 +551,7 @@ head -n 4 Documents/a-tale-of-two-cities.txt
 The `tail` program works exactly the same way:
 
 
-```bash
+``` bash
 tail Documents/a-tale-of-two-cities.txt
 ```
 
@@ -579,7 +579,7 @@ of a command followed by the name of the new file that will contain the output
 from the proceeding command. Let's try an example using `echo`:
 
 
-```bash
+``` bash
 echo "I'm in the terminal."
 ```
 
@@ -588,7 +588,7 @@ echo "I'm in the terminal."
 ```
 
 
-```bash
+``` bash
 echo "I'm in the file." > echo-out.txt
 ```
 
@@ -596,7 +596,7 @@ Only the first command printed output to the terminal. Let's see if the second
 command worked:
 
 
-```bash
+``` bash
 ls
 ```
 
@@ -612,7 +612,7 @@ ls
 ```
 
 
-```bash
+``` bash
 cat echo-out.txt
 ```
 
@@ -624,7 +624,7 @@ It worked! You can also **append** text to the end of a file using
 two greater-than signs (`>>`). Let's try this feature out:
 
 
-```bash
+``` bash
 echo "I have been appended." >> echo-out.txt
 cat echo-out.txt
 ```
@@ -640,7 +640,7 @@ the terminal when really I meant to type `echo "A third line." >> echo-out.txt`
 (notice I used `>` when I meant to use `>>`). Let's see what happens:
 
 
-```bash
+``` bash
 echo "A third line." > echo-out.txt
 cat echo-out.txt
 ```
@@ -669,7 +669,7 @@ one text editor we will discuss using is called `nano`. Just like `less`, `nano`
 uses your entire terminal window. Let's edit `todo.txt` using `nano`:
 
 
-```bash
+``` bash
 nano todo.txt
 ```
 
@@ -715,7 +715,7 @@ by typing `Control` + `O` followed by `Control` + `X`.
 Now let's quickly check if those changes were saved correctly:
 
 
-```bash
+``` bash
 cat todo.txt
 ```
 
@@ -761,7 +761,7 @@ In this section we will discuss moving, renaming, copying, and deleting files an
 folders. First let's revisit the contents of our current working directory:
 
 
-```bash
+``` bash
 ls
 ```
 
@@ -781,7 +781,7 @@ make a new directory to store all of the journal entries in called `Journal`. We
 already know how to do that:
 
 
-```bash
+``` bash
 mkdir Journal
 ```
 
@@ -791,7 +791,7 @@ arguments: first the path to the file or folder that you wish to move followed
 by the destination folder. Let's try using `mv` now:
 
 
-```bash
+``` bash
 mv journal-2017-01-24.txt Journal
 ls
 ```
@@ -812,7 +812,7 @@ directory into the `Documents` folder. Thankfully we can do this with `mv` in
 the same way:
 
 
-```bash
+``` bash
 mv Journal Documents
 ls
 ```
@@ -830,7 +830,7 @@ todo.txt
 Let's just make sure it ended up in the right place:
 
 
-```bash
+``` bash
 ls Documents
 ```
 
@@ -845,7 +845,7 @@ that you want to rename, and the second argument is a path with the new name
 for the file or folder. Let's rename `todo.txt` so it includes today's date:
 
 
-```bash
+``` bash
 mv todo.txt todo-2017-01-24.txt
 ls
 ```
@@ -867,7 +867,7 @@ is the first argument, followed by the path to the folder where you want the
 copy to be made:
 
 
-```bash
+``` bash
 cp echo-out.txt Desktop
 ls
 ```
@@ -883,7 +883,7 @@ todo-2017-01-24.txt
 ```
 
 
-```bash
+``` bash
 ls Desktop
 ```
 
@@ -898,7 +898,7 @@ directory you wish to copy remains intact. Let's try copying my `Documents`
 directory into the `Desktop` directory:
 
 
-```bash
+``` bash
 cp -r Documents Desktop
 ls Desktop
 ```
@@ -929,7 +929,7 @@ of command line programs. When **r**e**m**oving files `rm` only requires the pat
 file in order to delete it. Let's test its destructive power on `echo-out.txt`:
 
 
-```bash
+``` bash
 rm echo-out.txt
 ls
 ```
@@ -951,7 +951,7 @@ like when we were using `cp` the `rm` command requires you to use the `-r`
 option when deleting entire directories. Let's test this battle station:
 
 
-```bash
+``` bash
 ls Desktop
 ```
 
@@ -961,7 +961,7 @@ echo-out.txt
 ```
 
 
-```bash
+``` bash
 rm -r Desktop/Documents
 ls Desktop
 ```
